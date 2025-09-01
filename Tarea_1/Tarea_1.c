@@ -1,20 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
+struct Usuario{
     char nombre[30];
     char apellido[30];
     int edad;
     int estatura;
 
+}
+int main() {
+    struct Usuario p;
+
     printf("Ingrese su nombre: ");
-    scanf("%s", nombre);
+    scanf("%s", p.nombre);
     printf("Ingrese su apellido: ");
-    scanf("%s", apellido);
+    scanf("%s", p.apellido);
     printf("Ingrese su edad: ");
-    scanf("%d", &edad);
+    scanf("%d", &p.edad);
     printf("Ingrese su estatura (en cm): ");
-    scanf("%d", &estatura);
+    scanf("%d", &p.estatura);
 
     // Abrir archivo en modo escritura
     FILE *archivo = fopen("datos.txt", "w");
@@ -24,7 +28,7 @@ int main() {
     }
 
     // Guardar los datos en el archivo
-    fprintf(archivo, "%s %s %d %d\n", nombre, apellido, edad, estatura);
+    fprintf(archivo, "%s %s %d %d\n", p.nombre, p.apellido, p.edad, p.estatura);
 
     fclose(archivo);
 
